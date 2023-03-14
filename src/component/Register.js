@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useNavigate, useParams, Link } from 'react-router-dom';
 
 import axios from "axios";
@@ -106,6 +106,25 @@ const Register = () => {
             })
     }
 
+    const procesarDelete = async () => {
+        await axios.delete(`http://localhost:8080/dish/${id}`)
+        .then((response) => {
+            return response;
+        })
+        .catch((error) => {
+            console.log(error)
+            return {}
+        })
+        .then((response) => {            
+            if(response.status === 204){
+                navigate("/");
+                return;
+            }            
+            guardarMostrarMensaje(response.data.message)
+            
+        })
+    }
+
     const onChange = (e) => {
         guardarData( {...data,
             [e.target.name]: (e.target.type === "checkbox") ? e.target.checked : e.target.value
@@ -174,9 +193,12 @@ const Register = () => {
                 <div className="align-self-md-center col-md-4 text-center pt-5">
                     {
                         (id != undefined || id != null) ? (
-                            <button type="button" id="actualizar" onClick={() => procesarUpdate()} className="btn btn-primary btn-sm">Actualizar</button>
+                            <Fragment>
+                                <button type="button" data-testid="actualizar" onClick={() => procesarUpdate()} className="btn btn-primary btn-sm m-4">Actualizar</button>
+                                <button type="button" data-testid="eliminar" onClick={() => procesarDelete()} className="btn btn-danger btn-sm m-4">Eliminar</button>
+                            </Fragment>
                         ) : (
-                            <button type="button" id="registrar" onClick={() => procesarRegistro()} className="btn btn-success btn-sm">Registrar</button>
+                            <button type="button" data-testid="registrar" onClick={() => procesarRegistro()} className="btn btn-success btn-sm m-4">Registrar</button>
                         )
                     }
                     <Link to={`/`} className="btn btn-info btn-sm m-4" >Volver</Link>

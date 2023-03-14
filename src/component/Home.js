@@ -66,7 +66,8 @@ const Home = () => {
 							<th scope="col">Acciones</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody data-testid="table-tbody">
+						
 						{
 							(listaPlatos.length === 0) ? (
 								<NotContent />
