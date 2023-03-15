@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 
 const Lista = ({plato}) => (
     <tr>
-        <td data-testid="rowId"> <input type="hidden" id="idvalue" value={plato.id} /> {plato.campos}</td>
+        <td>{plato.id}</td>
+        <td>{plato.campos}</td>
         <td>{plato.color}</td>
         <td>{plato.nombre}</td>
         <td>{plato.inicioActividad}</td>

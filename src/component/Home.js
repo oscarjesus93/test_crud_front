@@ -56,7 +56,8 @@ const Home = () => {
 				<div className="col-md-12">
 				<table name="table" id="listRegister" className="table table-striped">
 					<thead>
-						<tr>							
+						<tr>	
+							<th scope="col">Id</th>						
 							<th scope="col">Campos</th>
 							<th scope="col">Color</th>
 							<th scope="col">Nombre</th>
