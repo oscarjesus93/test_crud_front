@@ -11,7 +11,7 @@ const Lista = ({plato}) => (
         <td>{ (plato.oferta === true) ? 'Si' : 'No' }</td>
         <td>$ {plato.precio}</td>
         <td>
-            <Link to={`/edit/${plato.id}`} className="btn btn-primary btn-sm">Seleccionar</Link>
+            <Link to={`/edit/${plato.id}`} data-testid={`button_${plato.id}`} className="btn btn-primary btn-sm">Seleccionar</Link>
         </td>
     </tr>
 )
