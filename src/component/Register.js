@@ -159,27 +159,27 @@ const Register = () => {
 
                 <div className="col-md-4">
                     <div className="form-group">
-                        <label htmlFor="nombre">Name</label>
-                        <input type="text" name="name" id="nombre" value={name} onChange={onChange} className="form-control" />
+                        <label htmlFor="name">Name</label>
+                        <input type="text" name="name" data-testid="name" value={name} onChange={onChange} className="form-control" />
                     </div>
                 </div>
                 <div className="col-md-4">
                     <div className="form-group">
                         <label htmlFor="color">Color</label>
-                        <input type="text" name="color" id="color" value={color} onChange={onChange} className="form-control" />
+                        <input type="text" name="color" data-testid="color" value={color} onChange={onChange} className="form-control" />
                     </div>
                 </div>
                 <div className="col-md-4">
                     <div className="form-group">
-                        <label htmlFor="campos">Fields</label>
-                        <input type="text" name="field" id="campos" value={field} onChange={onChange} className="form-control" />
+                        <label htmlFor="field">Fields</label>
+                        <input type="text" name="field" data-testid="field" value={field} onChange={onChange} className="form-control" />
                     </div>
                 </div>
 
                 <div className="align-self-md-center col-md-4 text-center pt-5">
                     <div className="form-check text-center">
                         <label>
-                            <input type="checkbox" name="offer" data-testid="oferta" checked={offer} onChange={onChange} /> Offer                        
+                            <input type="checkbox" name="offer" data-testid="offer" checked={offer} onChange={onChange} /> Offer                        
                         </label>                        
                     </div>
                 </div>
@@ -187,19 +187,19 @@ const Register = () => {
                 <div className="align-self-md-center col-md-4 text-center pt-5">
                     <div className="form-group">
                         <label>Price</label>
-                        <input type="number" name="price" id="precio" value={price} onChange={onChange} className="form-control" />
+                        <input type="number" name="price" id="price" value={price} onChange={onChange} className="form-control" />
                     </div>
                 </div>
 
                 <div className="align-self-md-center col-md-4 text-center pt-5">
                     {
-                        (id != undefined || id != null) ? (
+                        (id !== undefined || id != null) ? (
                             <Fragment>
                                 <button type="button" data-testid="update" onClick={() => procesarUpdate()} className="btn btn-primary btn-sm m-4">Update</button>
                                 <button type="button" data-testid="delete" onClick={() => procesarDelete()} className="btn btn-danger btn-sm m-4">Delete</button>
                             </Fragment>
                         ) : (
-                            <button type="button" data-testid="register" onClick={() => procesarRegistro()} className="btn btn-success btn-sm m-4">Register</button>
+                            <button type="button" data-testid="register" onClick={() => procesarRegistro()} className="btn btn-success btn-sm m-4">Save</button>
                         )
                     }
                     <Link to={`/`} className="btn btn-info btn-sm m-4" >Go back</Link>
