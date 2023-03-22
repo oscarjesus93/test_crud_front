@@ -60,7 +60,7 @@ const Register = () => {
 
         if(field.length <= 0 || color.length <= 0 || name.length <= 0 || offer === false || parseInt(price) === 0){
             guardarValidacion(true);
-            guardarMostrarMensaje('TAll fields are required')
+            guardarMostrarMensaje('The all fields are required')
             return;
         }
 
